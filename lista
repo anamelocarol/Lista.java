@@ -1,0 +1,35 @@
+public class ListaPares {
+private int[] elementos;
+private int tamanho;
+
+```
+public ListaPares() {
+    elementos = new int[5]; // até 5 elementos
+    tamanho = 0;
+}
+
+public void inserir(int valor) {
+    if (valor % 2 != 0) {
+        System.out.println("Apenas números pares podem ser inseridos!");
+        return;
+    }
+
+    if (tamanho < elementos.length) {
+        elementos[tamanho] = valor;
+        tamanho++;
+        System.out.println("Valor " + valor + " inserido na lista de pares.");
+    } else {
+        System.out.println("A lista está cheia!");
+    }
+}
+
+public void mostrar() {
+    System.out.print("Lista de pares: ");
+    for (int i = 0; i < tamanho; i++) {
+        System.out.print(elementos[i] + " ");
+    }
+    System.out.println();
+}
+```
+
+}
