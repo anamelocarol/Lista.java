@@ -1,0 +1,122 @@
+import java.util.Scanner;
+
+public class Principal {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Instancia as classes que você criou nos outros arquivos
+        Lista lista = new Lista(); 
+        Pilha pilha = new Pilha();
+        Fila fila = new Fila();
+        int opcao = 0;
+
+        do {
+            System.out.println("\n--- MENU DE ESTRUTURAS DE DADOS ---");
+            System.out.println("1. Testar Lista");
+            System.out.println("2. Testar Pilha");
+            System.out.println("3. Testar Fila");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
+            
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                scanner.nextLine(); // Consome a quebra de linha
+            } else {
+                System.out.println("Entrada inválida. Tente novamente.");
+                scanner.nextLine(); // Limpa a entrada inválida
+                continue;
+            }
+
+            switch (opcao) {
+                case 1:
+                    testarLista(scanner, lista);
+                    break;
+                case 2:
+                    testarPilha(scanner, pilha);
+                    break;
+                case 3:
+                    testarFila(scanner, fila);
+                    break;
+                case 0:
+                    System.out.println("Encerrando o programa.");
+                    break;
+                default:
+                    System.out.println("Opção não reconhecida.");
+            }
+        } while (opcao != 0);
+
+        scanner.close();
+    }
+
+    // MÉTODOS DE TESTE (Chamados pelos números do menu)
+    
+    private static void testarLista(Scanner scanner, Lista lista) {
+        int subOpcao;
+        do {
+            System.out.println("\n--- Teste de Lista ---");
+            System.out.println("1. Inserir Elemento");
+            System.out.println("2. Mostrar Lista (Requisito 4)");
+            System.out.println("0. Voltar ao Menu Principal");
+            System.out.print("Escolha: ");
+            subOpcao = scanner.nextInt();
+
+            if (subOpcao == 1) {
+                System.out.print("Digite o valor para inserir: ");
+                int valor = scanner.nextInt();
+                lista.inserir(valor);
+            } else if (subOpcao == 2) {
+                lista.mostrar();
+            }
+        } while (subOpcao != 0);
+    }
+    
+    private static void testarPilha(Scanner scanner, Pilha pilha) {
+        int subOpcao;
+        do {
+            System.out.println("\n--- Teste de Pilha ---");
+            System.out.println("1. Push (Empilhar)");
+            System.out.println("2. Pop (Desempilhar)");
+            System.out.println("3. Mostrar Pilha (Requisito 4)");
+            System.out.println("0. Voltar ao Menu Principal");
+            System.out.print("Escolha: ");
+            subOpcao = scanner.nextInt();
+
+            if (subOpcao == 1) {
+                System.out.print("Digite o valor para empilhar: ");
+                int valor = scanner.nextInt();
+                pilha.push(valor);
+            } else if (subOpcao == 2) {
+                System.out.println("Removido: " + pilha.pop());
+            } else if (subOpcao == 3) {
+                pilha.mostrar();
+            }
+        } while (subOpcao != 0);
+    }
+
+    private static void testarFila(Scanner scanner, Fila fila) {
+        int subOpcao;
+        do {
+            System.out.println("\n--- Teste de Fila ---");
+            System.out.println("1. Enqueue (Enfileirar)");
+            System.out.println("2. Dequeue (Desenfileirar)");
+            System.out.println("3. Mostrar Fila (Requisito 4)");
+            System.out.println("0. Voltar ao Menu Principal");
+            System.out.print("Escolha: ");
+            subOpcao = scanner.nextInt();
+
+            if (subOpcao == 1) {
+                System.out.print("Digite o valor para enfileirar: ");
+                int valor = scanner.nextInt();
+                fila.enqueue(valor);
+            } else if (subOpcao == 2) {
+                System.out.println("Removido: " + fila.dequeue());
+            } else if (subOpcao == 3) {
+                fila.mostrar();
+            }
+        } while (subOpcao != 0);
+    }
+}
+
+        entrada.close();
+    }
+}
